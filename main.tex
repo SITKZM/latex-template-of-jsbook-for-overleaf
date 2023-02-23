@@ -1,0 +1,174 @@
+\documentclass[uplatex, dvipdfmx, ja=standard, 12pt]{bxjsbook}
+
+\setlength{\topmargin}{-0.8in}
+\setlength{\oddsidemargin}{0pt}
+\setlength{\evensidemargin}{0pt}
+\setlength{\headheight}{10pt}
+\setlength{\headsep}{10pt}
+\setlength{\textheight}{40\baselineskip}
+\setlength{\textwidth}{\fullwidth}
+\renewcommand{\baselinestretch}{1.25}
+
+\usepackage[dvipdfm]{graphicx}
+\usepackage{titlesec}
+\usepackage{picture}
+\usepackage{here}
+\usepackage[hang,small,bf]{caption}
+\usepackage[subrefformat=parens]{subcaption}
+\usepackage{comment}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{ascmac}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage[thicklines]{cancel}
+\usepackage{physics}
+\usepackage[version=4]{mhchem}
+\usepackage{siunitx}
+\usepackage{cases}
+\usepackage{tikz}
+\usetikzlibrary{intersections, calc, arrows.meta}
+\usepackage{booktabs}
+\captionsetup{compatibility=false}
+\usepackage{wrapfig}
+\usepackage{xcolor}
+\definecolor{sectioncolor}{RGB}{255,135,47}
+\definecolor{subsectioncolor}{RGB}{112,134,241}
+\definecolor{subsubsectioncolor}{RGB}{0,136,40}
+\usepackage[utf8]{inputenc}
+\usepackage[noto-otc]{pxchfon}
+\usepackage{minted}
+\usepackage[
+dvipdfmx,
+hidelinks=true
+]{hyperref}
+\usepackage{pxjahyper}
+
+\newcommand{\figref}[1]{図\ref{#1}}
+\newcommand{\tabref}[1]{表\ref{#1}}
+\newcommand{\chref}[1]{第\ref{#1}章}
+
+\newcommand{\floor}[1]{\left\lfloor{#1}\right\rfloor}
+\newcommand{\ceil}[1]{\left\lceil{#1}\right\rceil}
+\newcommand{\sgn}{\mathrm{sgn}}
+\newcommand{\trp}[1]{{}^\mathsf{t}{#1}}
+
+\DeclarePairedDelimiter{\cket}{\lvert}{\rparen}
+\DeclarePairedDelimiter{\cbra}{\lparen}{\rvert}
+\DeclarePairedDelimiterX{\cbraket}[2]{\lparen}{\rparen}{#1 \delimsize\vert #2}
+\DeclarePairedDelimiterX{\cketbra}[2]{\lvert}{\rvert}{#1 \delimsize\rparen\delimsize\lparen #2}
+\DeclarePairedDelimiterX{\cev}[2]{\lparen}{\rparen}{#2 \delimsize\rvert #1 \delimsize\lvert #2}
+\DeclarePairedDelimiterX{\cmel}[3]{\lparen}{\rparen}{#1 \delimsize\rvert #2 \delimsize\lvert #3}
+
+\newcommand{\mr}[1]{\mathrm{#1}}
+\renewcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\ms}[1]{\mathsf{#1}}
+\newcommand{\mh}[1]{\mathscr{#1}}
+\newcommand{\ul}[1]{\underline{#1}}
+\newcommand{\im}{\imath}
+\newcommand{\msigmax}{\mqty(0 & 1 \\ 1 & 0 )}
+\newcommand{\msigmay}{\mqty(0 & -\im \\ \im & 0 )}
+\newcommand{\msigmaz}{\mqty(1 & 0 \\ 0 & -1 )}
+
+\newcommand{\nn}{\nonumber}
+\newcommand{\rar}{\rightarrow}
+\newcommand{\Rar}{\Rightarrow}
+
+% chapter
+\titleformat{\chapter}[block]
+{}{}{0pt}{
+  \fontsize{30pt}{30pt}\selectfont\filcenter
+}[
+  \hrule \Large{\filcenter 第 \thechapter 章}
+]
+% chapter*
+\titleformat{name=\chapter,numberless}[block]
+{}{}{0pt}{
+  \fontsize{30pt}{30pt}\selectfont\filcenter
+}[\hrule]
+
+% section
+\titleformat{\section}[block]
+{}{}{0pt}
+{
+  \colorbox{sectioncolor}{\begin{picture}(0,10)\end{picture}}
+  \hspace{0pt}
+  \normalfont \Large\bfseries \thesection \
+  \hspace{-4pt}
+}
+
+% section*
+\titleformat{name=\section,numberless}[block]
+{}{}{0pt}
+{
+  \colorbox{sectioncolor}{\begin{picture}(0,10)\end{picture}}
+  \hspace{0pt}
+  \normalfont \Large\bfseries
+  \hspace{-4pt}
+}
+
+% subsection
+\titleformat{\subsection}[block]
+{}{}{0pt}
+{
+  \colorbox{subsectioncolor}{\begin{picture}(0,8)\end{picture}}
+  \hspace{0pt}
+  \normalfont \large\bfseries \thesubsection \
+  \hspace{-4pt}
+}
+
+% subsubsection
+\titleformat{\subsubsection}[block]
+{}{}{0pt}
+{
+  \colorbox{subsubsectioncolor}{\begin{picture}(0,5)\end{picture}}
+  \hspace{0pt}
+  \normalfont \bfseries
+  \hspace{-4pt}
+}
+
+\makeatletter
+\renewcommand{\theequation}{\arabic{chapter}.\arabic{equation}}
+\@addtoreset{equation}{chapter}
+\makeatother
+
+% page style
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+\renewcommand{\chaptermark}[1]{\thispagestyle{empty}\markboth{\ifnum\value{chapter}>0 第\ \normalfont\thechapter\ 章 \fi #1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection \ #1}{}}
+\fancyhead[RO]{\rightmark　\bfseries\thepage}
+\fancyhead[LE]{\bfseries\thepage　\normalfont\leftmark}
+
+\西暦
+\begin{document}
+\begin{titlepage}
+\begin{center}
+\vspace*{160truept}
+{\Large THESIS etc}\\
+\rule{\textwidth}{1.6pt}\vspace*{-\baselineskip}\vspace*{2pt}
+\rule{\textwidth}{0.4pt}\\[\baselineskip]
+{\Huge TITLE} \\
+\rule{\textwidth}{0.4pt}\vspace*{-\baselineskip}\vspace{3.2pt}
+\rule{\textwidth}{1.6pt}\\[\baselineskip]
+\scshape
+{\large \today}\\
+\vspace{230truept}
+{\huge Kazuma Saito}
+\end{center}
+\end{titlepage}
+
+\pagenumbering{roman}
+\include{preface}
+\tableofcontents
+\include{notation}
+
+\pagenumbering{arabic}
+\include{content}
+
+\bibliography{reference}
+\bibliographystyle{junsrt}
+\end{document}

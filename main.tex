@@ -1,13 +1,14 @@
 \RequirePackage{plautopatch}
-\documentclass[uplatex, dvipdfmx, ja=standard, 12pt]{bxjsbook}
+\documentclass[uplatex, dvipdfmx, 12pt]{jsbook}
 
 \setlength{\topmargin}{-0.8in}
 \setlength{\oddsidemargin}{0pt}
 \setlength{\evensidemargin}{0pt}
-\setlength{\headheight}{10pt}
+\setlength{\headheight}{16pt}
 \setlength{\headsep}{10pt}
 \setlength{\textheight}{40\baselineskip}
 \setlength{\textwidth}{\fullwidth}
+\setlength{\footskip}{4.80005pt}
 \renewcommand{\baselinestretch}{1.25}
 
 \usepackage[dvipdfm]{graphicx}
@@ -39,11 +40,11 @@
 \definecolor{subsectioncolor}{RGB}{112,134,241}
 \definecolor{subsubsectioncolor}{RGB}{0,136,40}
 \usepackage[utf8]{inputenc}
-\usepackage[noto-otc]{pxchfon}
+\usepackage[noto-otc, unicode]{pxchfon}
 \usepackage{minted}
 \usepackage[
 dvipdfmx,
-hidelinks=true
+hidelinks
 ]{hyperref}
 \usepackage{pxjahyper}
 

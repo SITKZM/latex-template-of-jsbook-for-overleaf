@@ -1,14 +1,13 @@
 \RequirePackage{plautopatch}
-\documentclass[uplatex, dvipdfmx, 12pt]{jsbook}
+\documentclass[uplatex, dvipdfmx, 14pt, a4j]{jsbook}
 
-\setlength{\topmargin}{-0.8in}
-\setlength{\oddsidemargin}{0pt}
-\setlength{\evensidemargin}{0pt}
-\setlength{\headheight}{16pt}
-\setlength{\headsep}{10pt}
-\setlength{\textheight}{40\baselineskip}
-\setlength{\textwidth}{\fullwidth}
 \setlength{\footskip}{4.80005pt}
+\usepackage[
+top=16truemm,
+bottom=20truemm,
+left=20truemm,
+right=20truemm
+]{geometry}
 \renewcommand{\baselinestretch}{1.25}
 
 \usepackage[dvipdfm]{graphicx}
@@ -17,6 +16,7 @@
 \usepackage{here}
 \usepackage[hang,small,bf]{caption}
 \usepackage[subrefformat=parens]{subcaption}
+\captionsetup{compatibility=false}
 \usepackage{comment}
 \usepackage{fancyhdr}
 \usepackage{enumitem}
@@ -33,7 +33,6 @@
 \usepackage{tikz}
 \usetikzlibrary{intersections, calc, arrows.meta}
 \usepackage{booktabs}
-\captionsetup{compatibility=false}
 \usepackage{wrapfig}
 \usepackage{xcolor}
 \definecolor{sectioncolor}{RGB}{255,135,47}
@@ -85,6 +84,7 @@ hidelinks
 }[
   \hrule \Large{\filcenter 第 \thechapter 章}
 ]
+\titlespacing{\chapter}{0truemm}{0truemm}{10truemm}[0truemm]
 % chapter*
 \titleformat{name=\chapter,numberless}[block]
 {}{}{0pt}{
